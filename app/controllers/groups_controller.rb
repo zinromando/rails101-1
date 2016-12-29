@@ -46,7 +46,7 @@ class GroupsController < ApplicationController
   def join
     @group = Group.find(params[:id])
 
-    if !current_user.is_member_of?(group)
+    if !current_user.is_member_of?(@group)
       current_user.join!(@group)
       flash[:notice] = '加入本讨论版成功！'
     else
